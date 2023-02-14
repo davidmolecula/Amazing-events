@@ -15,6 +15,7 @@ body{
     width: 98vw;
     border:1px solid black;
     padding: 0;
+    margin-left:.5vw;
 }
 
 .navegacion {
@@ -49,4 +50,25 @@ fieldset {
 }
 .card {
 
+}
+
+.button {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+}
+.contenedor-tabla{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+}
+.tabla,td {
+    border:1px solid black;
+}
+
+td {
+    margin:0;
+    padding:0;
+    height: 5%;
 }
