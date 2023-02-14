@@ -48,8 +48,8 @@ fieldset {
 .card-img-top{
     height: 250px;
 }
-.card {
-
+.card-body a{
+    margin-left: 30px;
 }
 
 .button {

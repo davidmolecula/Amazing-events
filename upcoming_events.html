@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upcoming Events</title>
+    <link rel="shortcut icon" type="image/jpg" href="/img/Logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
@@ -25,10 +26,11 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+                            <a class="nav-link" href="home.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="upcoming_events.html">Upcoming Events</a>
+                            <a class="nav-link active" aria-current="page" href="upcoming_events.html">Upcoming
+                                Events</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="past_events.html">Past Events</a>
@@ -47,12 +49,12 @@
     </header>
 
     <div class="div-titulo">
-        <a class="navegacion" href="#">
-            < </a>
-                <h1>Upcoming Events</h1>
-                <a class="navegacion" href="#">></a>
+        <a class="navegacion" href="home.html">
+            &lt; </a>
+        <h1>Upcoming Events</h1>
+        <a class="navegacion" href="past_events.html">></a>
     </div>
-    <form action="">
+    <form action="../TP1/showdata.html" method="GET">
         <fieldset>
             <div>
                 <label> <input type="checkbox">Category</label>
@@ -61,7 +63,8 @@
                 <label><input type="checkbox">Category</label>
                 <label><input type="checkbox">Category</label>
             </div>
-            <label><input type="text"></label>
+            <label><input type="text">
+                &#128269;</label>
         </fieldset>
     </form>
 
@@ -75,7 +78,7 @@
             </div>
             <div class="card-body">
                 <span>Price $0000</span>
-                <a href="#" class="btn btn-primary">See more...</a>
+                <a href="details.html" class="btn btn-primary">See more...</a>
             </div>
         </div>
         <div class="card" style="width: 16rem;height: 400px;">
@@ -87,7 +90,7 @@
             </div>
             <div class="card-body">
                 <span>Price $0000</span>
-                <a href="#" class="btn btn-primary">See more...</a>
+                <a href="details.html" class="btn btn-primary">See more...</a>
             </div>
         </div>
         <div class="card" style="width: 16rem;height: 400px;">
@@ -99,7 +102,7 @@
             </div>
             <div class="card-body">
                 <span>Price $0000</span>
-                <a href="#" class="btn btn-primary">See more...</a>
+                <a href="details.html" class="btn btn-primary">See more...</a>
             </div>
         </div>
         <div class="card" style="width: 16rem; height: 400px;">
@@ -111,7 +114,7 @@
             </div>
             <div class="card-body">
                 <span>Price $0000</span>
-                <a href="#" class="btn btn-primary">See more...</a>
+                <a href="details.html" class="btn btn-primary">See more...</a>
             </div>
         </div>
     </div>
@@ -134,7 +137,7 @@
                     <use xlink:href="#bootstrap"></use>
                 </svg>
             </a>
-            <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+            <span class="card-title">Cohort</span>
         </div>
     </footer>
 
