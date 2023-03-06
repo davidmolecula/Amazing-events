@@ -11,7 +11,7 @@ const elOtroCheckbox=document.getElementById('elotrocheckbox');
 let checkbox=[];
 
 
-function createCard(card, event)
+function createCard(event)
 {
     htmlEvents+=`<div class="card" style="width: 16rem;height: 400px;">
     <img src="${event.image}" class="card-img-top" alt="...">
@@ -21,7 +21,7 @@ function createCard(card, event)
     </div>
     <div class="card-body">
     <span class="cards-span">Price $${event.price}</span>
-    <a href="details.html" class="btn btn-primary">See more...</a>
+    <a href="details.html?id=${event._id}" class="btn btn-primary">See more...</a>
     </div>
 </div>`;
     
@@ -32,7 +32,7 @@ function createAllCards()
 {
 for(let event of data.events)
 {
-createCard(card, event);
+createCard(event);
 }
 }
 
@@ -50,7 +50,7 @@ txtInput.addEventListener("keyup", e =>
     data.events.forEach(event => {if(event.name.toLowerCase().includes(e.target.value.toLowerCase()))
     {
         deleteCards();
-        createCard(card,event);
+        createCard(event);
         if(txtInput.value==="")
         {
             createAllCards();
@@ -89,5 +89,7 @@ function createCategoriesCheckboxes()
     categoriesContainer.innerHTML+=`<label> <input class="category" type="checkbox" name="category" value="${fcategory}">${fcategory}</label>`;
     }
 }
+
+
 
 
