@@ -1,30 +1,35 @@
-let card=document.getElementById('cards');
-let htmlEvents="";
-
-
-
-
-for(let event of datos.events)
-{
-  htmlEvents+=` <div class="card" style="width: 16rem;height: 400px;">
-  <img src="${event.image}" class="card-img-top" alt="...">
-  <div class="card-body">
-      <h5 class="card-title">${event.name}</h5>
-      <p class="card-text">${event.description}</p>
-  </div>
-  <div class="card-body">
-      <span class="cards-span">Price ${event.price}</span>
-      <a href="details.html" class="btn btn-primary">See more...</a>
-  </div>
-</div>`;
-card.innerHTML=htmlEvents;
-
-console.log(event.currentDate)
-}
+createAllCards();
+createCategoriesCheckboxes();
 
 
 
 
 
+
+let checkboxes = document.querySelectorAll("input[type=checkbox][name=category]");
+let enabledSettings = []
+// Use Array.forEach to add an event listener to each checkbox.
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    deleteCards();
+    enabledSettings = 
+      Array.from(checkboxes) // Convert checkboxes to an array to use filter and map.
+      .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
+      .map(i => i.value) // Use Array.map to extract only the checkbox values from the array of objects.
+      for(let enabled of enabledSettings)
+    {
+        const filtrado=data.events.filter(evento => evento.category.toLowerCase()===enabled.toLowerCase()); 
+        for(let eventof of filtrado)
+        {
+        createCard(card, eventof);
+        }
+    }
+    if(enabledSettings.length===0)
+    {
+      createAllCards();
+    }
+  })
+
+});
 
 

@@ -33,7 +33,7 @@ h1 {
     
 }
 
-fieldset {
+.fieldset {
     display: flex;
     justify-content: space-between;
     margin: 40px;
@@ -73,4 +73,9 @@ td {
     margin:0;
     padding:0;
     height: 5%;
+}
+
+#categories {
+    display: flex;
+    gap:15px;
 }
