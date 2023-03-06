@@ -15,8 +15,8 @@ detailContainer.innerHTML=` <div class="row flex-lg align-items-center g-5 py-5"
 </div>
 <div class="col-lg-6" id="details-info-container">
     <h1>${evento.name}</h1> 
-    <p class="spans"><span class="span">date: ${evento.date}</span><span class="span">Place: ${evento.place}</span><span class="span">tickets available:${tickets}</span></p>
+    <p class="spans"><span class="span">Date: ${evento.date}</span><span class="span">Place: ${evento.place}</span><span class="span">Tickets available:${tickets}</span></p>
     <p class="lead">${evento.description}.</p>
-
+    <p class="spans"><span class="span">Price: $${evento.price}</span><a class="span">Buy</a></p>
 </div>
 </div>`
