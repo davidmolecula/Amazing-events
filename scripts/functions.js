@@ -47,7 +47,7 @@ txtInput.addEventListener("keyup", e =>
 {
 
    // data.events.forEach(event => event.name.toLowerCase().includes(e.target.value.toLowerCase())? createCard(card,event): console.log("perra"))
-    data.events.forEach(event => {if(event.name.toLowerCase().includes(e.target.value.toLowerCase()))
+    data.events.forEach(event => {if(event.name.toLowerCase().includes(e.target.value.toLowerCase()) || event.description.toLowerCase().includes(e.target.value.toLowerCase()))
     {
         deleteCards();
         createCard(event);
