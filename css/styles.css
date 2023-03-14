@@ -35,6 +35,7 @@ h1 {
 
 .fieldset {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 40px;
 }
@@ -77,6 +78,8 @@ td {
 
 #categories {
     display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
     gap:15px;
 }
 

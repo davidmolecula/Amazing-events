@@ -1,9 +1,17 @@
-for(let event of data.events)
-{
-  let eventDate=event.date;
-  if(currentDate>eventDate)
-    {
-      createCard(event);
-}
-}
+createPastCards();
 createCategoriesCheckboxes();
+let checkboxes = document.querySelectorAll("input[type=checkbox][name=category]");
+let enabledSettings = [];
+
+txtInput.addEventListener("keyup", e =>
+{
+  searchCards(cardPast,e);
+
+})
+
+// Use Array.forEach to add an event listener to each checkbox.
+checkboxes.forEach(checkbox => {
+  checkbox.addEventListener('change', () => {
+    cardFromChecks(cardPast);
+})
+})
