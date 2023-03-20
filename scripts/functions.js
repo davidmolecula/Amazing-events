@@ -8,6 +8,7 @@ const categoriesChecked=document.getElementsByClassName('category');
 
 
 
+
 function createCard(event)
 {
     htmlEvents+=`<div class="card" style="width: 16rem;height: 400px;">
@@ -21,8 +22,6 @@ function createCard(event)
     <a href="details.html?id=${event._id}" class="btn btn-primary">See more...</a>
     </div>
 </div>`;
-    
-card.innerHTML=htmlEvents;
 }
 
 function createPastCards()
@@ -35,6 +34,7 @@ if(data.currentDate>eventDate)
     createCard(event);
 }
 }
+card.innerHTML=htmlEvents;
 }
 
 function createFutureCards()
@@ -48,6 +48,7 @@ createCard(event);
     
 }
 }
+card.innerHTML=htmlEvents;
 }
 
 function createAllCards(eventos)
@@ -56,6 +57,7 @@ for(let event of eventos)
 {
 createCard(event);
 }
+card.innerHTML=htmlEvents;
 }
 
 function deleteCards()
@@ -119,7 +121,7 @@ function createCategoriesCheckboxes()
 
 function searchCards(events,e)
 {
-deleteCards();
+  deleteCards();
 if(enabledSettings.length!==0)
 {
 for(let enabled of enabledSettings)
@@ -128,8 +130,8 @@ for(let enabled of enabledSettings)
     
     filtrado.forEach(filt => {if(filt.name.toLowerCase().includes(e.target.value.toLowerCase()) || filt.description.toLowerCase().includes(e.target.value.toLowerCase()))
         {
-
             createCard(filt);
+            
             if(txtInput.value==="")
             {
             deleteCards();
@@ -139,10 +141,14 @@ for(let enabled of enabledSettings)
                 for(let eventof of filtrado)
                 {
                 createCard(eventof);
+                
                 }
+                card.innerHTML=htmlEvents;
             }
+            
             }
         }});
+        card.innerHTML=htmlEvents;
 }
 }
 else {
@@ -155,6 +161,7 @@ events.forEach(evento => {if(evento.name.toLowerCase().includes(e.target.value.t
         createAllCards(events);
     }
 }});
+card.innerHTML=htmlEvents;
 }
 }
 
@@ -162,30 +169,62 @@ function cardFromChecks(eventTime)
 {
 if(txtInput.value==='')
 {
-deleteCards();
+  deleteCards();
 }
+
 enabledSettings = 
   Array.from(checkboxes) // Convert checkboxes to an array to use filter and map.
   .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
   .map(i => i.value) // Use Array.map to extract only the checkbox values from the array of objects.
   for(let enabled of enabledSettings)
 {
-    const filtrado=eventTime.filter(evento => evento.category.toLowerCase()===enabled.toLowerCase()); 
-    filtrado.forEach(filt => {
-      if(txtInput.value==='')
-      {
-       createCard(filt);
-      }
-      
+    let filtrado=eventTime.filter(evento => evento.category.toLowerCase()===enabled.toLowerCase()); 
     
-   })
+    if(txtInput.value==='')
+    {
+      filtrado.forEach(filt => { createCard(filt);})
+      card.innerHTML=htmlEvents;
+    }
+      else{
+          deleteCards();
+          for(let enabled of enabledSettings)
+          {
+            let filtrado=eventTime.filter(evento => evento.category.toLowerCase()===enabled.toLowerCase());
+            filtrado.forEach(filt =>{
+          if(filt.name.toLowerCase().includes(txtInput.value.toLowerCase()) || filt.description.toLowerCase().includes(txtInput.value.toLowerCase()))
+          {
+              createCard(filt)    
+          }
+          
+      })
+      card.innerHTML=htmlEvents;
+      }
+
 }
+}
+if(enabledSettings.length===0&&txtInput.value!=='')
+{
+  deleteCards();
+  eventTime.forEach(evento => {if(evento.name.toLowerCase().includes(txtInput.value.toLowerCase()) || evento.description.toLowerCase().includes(txtInput.value.toLowerCase()))
+    {
+        createCard(evento);
+        if(txtInput.value==="")
+        {
+            deleteCards();
+            createAllCards(eventTime);
+        }
+    }
+  }); 
+  card.innerHTML=htmlEvents;
+}
+
 if(enabledSettings.length===0&&txtInput.value==='')
 {
   for(let card of eventTime)
   {
     createCard(card);
   }
+  card.innerHTML=htmlEvents;
 }
 }
 
