@@ -17,7 +17,7 @@ function createCard(event)
     <h5 class="card-title">${event.name}</h5>
     <p class="card-text">${event.description}</p>
     </div>
-    <div class="card-body">
+    <div class="card-body" id="card-body">
     <span class="cards-span">Price $${event.price}</span>
     <a href="details.html?id=${event._id}" class="btn btn-primary">See more...</a>
     </div>
@@ -143,12 +143,22 @@ for(let enabled of enabledSettings)
                 createCard(eventof);
                 
                 }
-                card.innerHTML=htmlEvents;
+                if(htmlEvents!=='')
+{
+card.innerHTML=htmlEvents;
+}else{
+  card.innerHTML="<p>Not found</p>"
+}
             }
             
             }
         }});
-        card.innerHTML=htmlEvents;
+        if(htmlEvents!=='')
+{
+card.innerHTML=htmlEvents;
+}else{
+  card.innerHTML="<p>Not found</p>"
+}
 }
 }
 else {
@@ -161,7 +171,12 @@ events.forEach(evento => {if(evento.name.toLowerCase().includes(e.target.value.t
         createAllCards(events);
     }
 }});
+if(htmlEvents!=='')
+{
 card.innerHTML=htmlEvents;
+}else{
+  card.innerHTML="<p>Not found</p>"
+}
 }
 }
 
